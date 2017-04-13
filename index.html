@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title>TEST GET API</title>
+	</head>
+	<body>
+		
+		<button id="myButton">Get JSON!!</button>
+		
+		<div id="myDiv"></div>
+		
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script>
+			$("#myButton").click(function() {
+				var path = "http://localhost:3000/leis1.pdf";
+				$.getJSON(path, function(data) {
+					$.each(data, function(i,field) {
+						var textNode = document.createTextNode(1+ " "+JSON.stringify(field));
+						$("#myDiv").append(textNode);
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

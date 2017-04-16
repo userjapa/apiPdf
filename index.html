@@ -6,13 +6,15 @@
 	<body>
 		
 		<button id="myButton">Get JSON!!</button>
+        <input id="pdf">
 		
 		<div id="myDiv"></div>
 		
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script>
 			$("#myButton").click(function() {
-				var path = "http://localhost:3000/leis1.pdf";
+                var pdf = $("#pdf").val();
+				var path = "http://localhost:3000/"+pdf+".pdf";
 				$.getJSON(path, function(data) {
 					$.each(data, function(i,field) {
 						var textNode = document.createTextNode(1+ " "+JSON.stringify(field));
